@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+const API = import.meta.env.VITE_API_URL;
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
@@ -9,12 +9,12 @@ export const AppProvider = ({ children }) => {
     const [appointments, setAppointments] = useState([]);
     const [doctors, setDoctors] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
-    
+
     const navigate = useNavigate();
 
     const fetchDoctors = async () => {
         try {
-            const res = await fetch('/api/doctors/all');
+            const res = await fetch(`${API}/api/doctors/all`);
             const data = await res.json();
             if (data.success) {
                 setDoctors(data.data);
