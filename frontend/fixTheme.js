@@ -1,0 +1,24 @@
+import fs from 'fs';
+let file1 = fs.readFileSync('src/pages/AIHealthcare.jsx', 'utf8');
+file1 = file1.replace(/bg-blue-/g, 'bg-primary-');
+file1 = file1.replace(/text-blue-/g, 'text-primary-');
+file1 = file1.replace(/border-blue-/g, 'border-primary-');
+file1 = file1.replace(/bg-\[\#141A28\]/g, 'bg-(--bg-page)');
+file1 = file1.replace(/bg-\[\#1E293B\]\/40/g, 'bg-primary-900/40');
+file1 = file1.replace(/dark:bg-slate-850/g, 'dark:bg-primary-900');
+file1 = file1.replace(/bg-emerald-600/g, 'bg-primary-500');
+file1 = file1.replace(/bg-indigo-600/g, 'bg-primary-600');
+fs.writeFileSync('src/pages/AIHealthcare.jsx', file1);
+let file2 = fs.readFileSync('src/pages/AIChat.jsx', 'utf8');
+file2 = file2.replace(/bg-slate-50/g, 'bg-(--bg-page)');
+file2 = file2.replace(/bg-white/g, 'bg-(--bg-surface)');
+file2 = file2.replace(/border-slate-200/g, 'border-(--border-color)');
+file2 = file2.replace(/text-slate-900/g, 'text-(--text-main)');
+file2 = file2.replace(/text-slate-800/g, 'text-(--text-main)');
+file2 = file2.replace(/text-slate-600/g, 'text-(--text-muted)');
+file2 = file2.replace(/text-slate-500/g, 'text-(--text-muted)');
+file2 = file2.replace(/text-slate-400/g, 'text-(--text-muted)');
+file2 = file2.replace(/text-slate-650/g, 'text-(--text-muted)');
+fs.writeFileSync('src/pages/AIChat.jsx', file2);
+console.log('Done!');
+
